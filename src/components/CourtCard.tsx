@@ -60,6 +60,7 @@ export const CourtCard: React.FC<CourtCardProps> = ({ court }) => {
         </div>
 
         <div className="mt-6">
+            // Book Now button
           <Button onClick={handleBookNow} className="w-full">
             Book Now
           </Button>
