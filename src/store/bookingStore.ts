@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { Court, Slot, Booking } from '../types';
-
+// Define the shape of the booking state
 interface BookingState {
   selectedCourt: Court | null;
   selectedSlots: Slot[];
@@ -15,7 +15,7 @@ interface BookingState {
   setBookingDetails: (details: { name: string; email: string; phone: string }) => void;
   resetBooking: () => void;
 }
-
+// Zustand store for managing booking state
 export const useBookingStore = create<BookingState>((set) => ({
   selectedCourt: null,
   selectedSlots: [],
