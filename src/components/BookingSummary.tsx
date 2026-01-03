@@ -99,6 +99,7 @@ export const BookingSummary: React.FC = () => {
           className="w-full bg-purple-700 hover:bg-purple-800"
           disabled={isProcessing}
         >
+          
           {isProcessing ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />

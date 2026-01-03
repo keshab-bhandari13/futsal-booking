@@ -18,7 +18,7 @@ export const SlotGrid: React.FC<SlotGridProps> = ({ slots }) => {
         const isAvailable = slot.status === 'available';
         const isBooked = slot.status === 'booked';
         const isLocked = slot.status === 'locked';
-
+// Render Slot Button
         return (
           <button
             key={slot.id}
