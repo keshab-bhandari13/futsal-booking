@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { XCircle } from 'lucide-react';
 import { Button } from '../components/ui/Button';
-
+// Payment Failure Component
 export const PaymentFailure: React.FC = () => {
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center px-4">
@@ -12,6 +12,7 @@ export const PaymentFailure: React.FC = () => {
         <p className="mt-2 text-lg text-gray-600">
           We couldn't process your payment. Please try again.
         </p>
+        
         <div className="mt-8 space-x-4">
           <Link to="/">
             <Button variant="outline" size="lg">Go Home</Button>
