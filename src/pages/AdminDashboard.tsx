@@ -7,7 +7,7 @@ const MOCK_BOOKINGS = [
   { id: 'b2', customer: 'Jane Smith', court: 'Lalitpur Sports Center', time: '2023-12-28 06:00 PM', amount: 1500, status: 'pending' },
   { id: 'b3', customer: 'Bob Wilson', court: 'Bhaktapur Futsal Hub', time: '2023-12-29 07:00 AM', amount: 1000, status: 'failed' },
 ];
-
+// Admin Dashboard Component
 export const AdminDashboard: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
