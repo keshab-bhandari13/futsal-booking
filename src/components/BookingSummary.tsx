@@ -11,7 +11,7 @@ export const BookingSummary: React.FC = () => {
   const [isProcessing, setIsProcessing] = useState(false);
 
   const totalAmount = selectedSlots.reduce((sum, slot) => sum + slot.price, 0);
-
+// Handle Payment Submission
   const handlePayment = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);
