@@ -17,7 +17,7 @@ export const Login: React.FC = () => {
     // Mock login logic
     const role = isAdminLogin ? 'admin' : 'user';
     login(email, role);
-
+// Redirect based on role
     if (role === 'admin') {
       navigate('/admin');
     } else {
@@ -54,6 +54,7 @@ export const Login: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
+            
             <div>
               <label htmlFor="password" className="sr-only">Password</label>
               <input
@@ -83,6 +84,7 @@ export const Login: React.FC = () => {
           >
             {isAdminLogin ? (
               <>
+            
                 <User className="h-4 w-4 mr-1" /> Switch to User Login
               </>
             ) : (
