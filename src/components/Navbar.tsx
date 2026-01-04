@@ -1,8 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { CalendarDays, User } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { CalendarDays, User, LogOut, LogIn } from 'lucide-react';
+import { useAuthStore } from '../store/authStore';
+import { Button } from './ui/Button';
 
 export const Navbar: React.FC = () => {
+  const { isAuthenticated, user, logout } = useAuthStore();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,18 +29,40 @@ export const Navbar: React.FC = () => {
               >
                 Courts
               </Link>
-              <Link
-                to="/admin"
-                className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                Admin
-              </Link>
+              {isAuthenticated && user?.role === 'admin' && (
+                <Link
+                  to="/admin"
+                  className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                >
+                  Admin
+                </Link>
+              )}
             </div>
           </div>
-          <div className="flex items-center">
-            <button className="p-2 rounded-full text-gray-400 hover:text-gray-500">
-              <User className="h-6 w-6" />
-            </button>
+          <div className="flex items-center space-x-4">
+            {isAuthenticated ? (
+              <>
+                <div className="flex items-center text-sm text-gray-700">
+                  <User className="h-5 w-5 mr-1 text-gray-400" />
+                  <span className="hidden sm:inline">{user?.name} ({user?.role})</span>
+                </div>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={handleLogout}
+                  className="text-gray-500 hover:text-red-600"
+                >
+                  <LogOut className="h-5 w-5" />
+                </Button>
+              </>
+            ) : (
+              <Link to="/login">
+                <Button variant="primary" size="sm">
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Sign In
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
