@@ -13,7 +13,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requir
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
-
+// If admin access is required, check the user's role
   if (requireAdmin && user?.role !== 'admin') {
     return (
       <div className="min-h-screen flex items-center justify-center">
