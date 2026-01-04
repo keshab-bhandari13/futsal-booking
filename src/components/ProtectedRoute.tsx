@@ -6,7 +6,7 @@ interface ProtectedRouteProps {
   children: React.ReactNode;
   requireAdmin?: boolean;
 }
-
+// A component that protects routes based on authentication and authorization
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requireAdmin = false }) => {
   const { isAuthenticated, user } = useAuthStore();
 
