@@ -7,6 +7,8 @@ import { BookingPage } from './pages/BookingPage';
 import { PaymentSuccess } from './pages/PaymentSuccess';
 import { PaymentFailure } from './pages/PaymentFailure';
 import { AdminDashboard } from './pages/AdminDashboard';
+import { Login } from './pages/Login';
+import { ProtectedRoute } from './components/ProtectedRoute';
 
 function App() {
   return (
@@ -16,10 +18,20 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/book/:courtId" element={<BookingPage />} />
             <Route path="/payment/success" element={<PaymentSuccess />} />
             <Route path="/payment/failure" element={<PaymentFailure />} />
-            <Route path="/admin" element={<AdminDashboard />} />
+            
+            {/* Protected Admin Route */}
+            <Route 
+              path="/admin" 
+              element={
+                <ProtectedRoute requireAdmin={true}>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              } 
+            />
           </Routes>
         </main>
         <Footer />
