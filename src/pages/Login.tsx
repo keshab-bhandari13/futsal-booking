@@ -89,7 +89,7 @@ export const Login: React.FC = () => {
               </>
             ) : (
               <>
-                <Lock className="h-4 w-4 mr-1" /> Switch to Admin Login
+                <Lock className="h-4 w-4 mr-1" /> Switch to Admin page
               </>
             )}
           </button>
